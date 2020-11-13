@@ -3,11 +3,11 @@
 開発環境用のデスクトップ環境Dockerイメージです。
 以下を含みます。
 
-- OpenJDK 10.0.2
+- OpenJDK 11.0.9.1
 - Apache Maven 3.5.4
-- Eclipse 4.9
-- Visual Studio Code 1.27.2
-- Golang 1.11.1
+- Eclipse 4.17
+- Visual Studio Code (latest at docker build)
+- Golang 1.15.3
 
 ## 実行
 
