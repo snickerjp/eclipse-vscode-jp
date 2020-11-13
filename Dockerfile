@@ -41,9 +41,9 @@ RUN anyenv install --force-init && \
 
 # Setup jenv (hack)
 RUN export PATH=/root/.anyenv/envs/jenv/bin:$PATH && \
-    mkdir -p /root/.jenv/versions/openjdk64-10.0.2 && \
+    mkdir -p /root/.jenv/versions && \
     jenv add /usr/lib/jvm/java-11-openjdk-amd64/ && \
-    jenv global 10.0.2 && \
+#    jenv global 10.0.2 && \
     mv /root/.jenv/* /root/.anyenv/envs/jenv && \
     rm -rf /root/.jenv
 
