@@ -70,7 +70,7 @@ RUN export PATH=/root/.anyenv/envs/goenv/versions/1.11.1/bin/:$PATH && \
     go get github.com/ianthehat/godef && \
     go get golang.org/x/tools/cmd/godoc && \
     go get github.com/sqs/goreturns && \
-    go get github.com/golang/lint/golint && \
+    go get golang.org/x/lint/golint && \
     go get github.com/cweill/gotests/... && \
     go get github.com/fatih/gomodifytags && \
     go get github.com/josharian/impl && \
