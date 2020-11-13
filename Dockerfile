@@ -1,4 +1,4 @@
-FROM uphy/ubuntu-desktop-jp:18.04
+FROM uphy/ubuntu-desktop-jp:20.04
 
 # Install development tools.
 RUN apt-get update && \
