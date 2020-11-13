@@ -45,9 +45,10 @@ RUN export PATH=/root/.anyenv/envs/jenv/bin:$PATH && \
     rm -rf /root/.jenv
 
 # Setup goenv (hack)
+ENV _GO_VERSION=1.15.3
 RUN export PATH=/root/.anyenv/envs/goenv/bin:/root/.anyenv/envs/goenv/plugins/go-build/bin:$PATH && \
-    goenv install 1.11.1 && \
-    goenv global 1.11.1 && \
+    goenv install ${_GO_VERSION} && \
+    goenv global ${_GO_VERSION} && \
     mv /root/.goenv/* /root/.anyenv/envs/goenv && \
     rm -rf /root/.goenv
 
@@ -57,7 +58,7 @@ RUN wget 'https://github.com/Microsoft/vscode-go/blob/master/Go-latest.vsix?raw=
     code --install-extension Go-latest.vsix --user-data-dir "."
 # Required modules for Go extension
 # set PATH because anyenv doesn't work for Dockerfile
-RUN export PATH=/root/.anyenv/envs/goenv/versions/1.11.1/bin/:$PATH && \
+RUN export PATH=/root/.anyenv/envs/goenv/versions/${_GO_VERSION}/bin/:$PATH && \
     go get github.com/mdempsky/gocode && \
     go get github.com/uudashr/gopkgs/cmd/gopkgs && \
     go get github.com/ramya-rao-a/go-outline && \
