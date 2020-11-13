@@ -28,12 +28,15 @@ RUN mkdir -p /usr/local/vscode && \
     rm -f vscode.deb
 
 # Install *env (hack)
-RUN git clone https://github.com/riywo/anyenv ~/.anyenv && \
+RUN git clone https://github.com/anyenv/anyenv ~/.anyenv && \
     echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc && \
     echo 'eval "$(anyenv init -)"' >> ~/.bashrc && \
-    mkdir -p ~/.anyenv/envs
+    mkdir -p ~/.anyenv/envs && \
+    echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile && \
+    echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
 ENV PATH=/root/.anyenv/bin:$PATH
-RUN anyenv install jenv && \
+RUN anyenv install --force-init && \
+    anyenv install jenv && \
     anyenv install goenv
 
 # Setup jenv (hack)
