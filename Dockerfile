@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 # Install Eclipse
 RUN mkdir -p /usr/local/eclipse && \
-    wget -qO- http://ftp.yz.yamagata-u.ac.jp/pub/eclipse/eclipse/downloads/drops4/R-4.9-201809060745/eclipse-SDK-4.9-linux-gtk-x86_64.tar.gz | tar zx --strip-components=1 -C /usr/local/eclipse && \
+    wget -qO- http://ftp.yz.yamagata-u.ac.jp/pub/eclipse/eclipse/downloads/drops4/R-4.17-202009021800/eclipse-SDK-4.17-linux-gtk-x86_64.tar.gz | tar zx --strip-components=1 -C /usr/local/eclipse && \
     ln -s /usr/local/eclipse/eclipse /usr/local/bin/eclipse
 
 # Install Maven
