@@ -53,8 +53,8 @@ RUN export PATH=/root/.anyenv/envs/goenv/bin:/root/.anyenv/envs/goenv/plugins/go
     rm -rf /root/.goenv
 
 # Install VScode Go extension(beta version)
-RUN wget 'https://github.com/Microsoft/vscode-go/blob/master/Go-latest.vsix?raw=true' && \
-    mv Go-latest* Go-latest.vsix && \
+RUN wget $(curl -s https://api.github.com/repos/golang/vscode-go/releases/latest | grep "browser_download_url.*.vsix" | grep "go-" | cut -d : -f 2,3 | sed -e 's/"//' -e 's/"$//') && \
+    mv go-*.vsix Go-latest.vsix && \
     code --install-extension Go-latest.vsix --user-data-dir "."
 # Required modules for Go extension
 # set PATH because anyenv doesn't work for Dockerfile
